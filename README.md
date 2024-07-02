@@ -1,46 +1,49 @@
-# Getting Started with Create React App
+# Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project demonstrates setting up a localhost environment using json-server to simulate a REST API on localhost:5000 and provides a basic UI on localhost:3000 to interact with this data.
 
-## Available Scripts
+# Prerequisites
 
-In the project directory, you can run:
+Ensure Node.js and npm are installed on your machine.
 
-### `npm start`
+# Project Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- src/data.json: Mock data file for json-server.
+- src/: Directory containing frontend code.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Notes
 
-### `npm test`
+Ensure ports 5000 and 3000 are free and accessible.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Features
 
-### `npm run build`
+This SPA basically contains Some cards (i.e. event cards) in which we have all the information of of events like event name, event timing, and event category. Along with the details there's a button to select the details.
+There's some constraint in selection of events such as:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. The can select two ebvents with same timing or conflicting timing. Conflicting timing means one event is starting from 1PM and ending at 2PM, other is starting from 1.30PM, still user can't choose second event as it will conflict half an hour of user's timing.
+2. The user can't select more than 3 events.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- UI will show list of selected and non-selected events. Once the event will be selected, conflicting events will be grey-out(disabled), and the event which got non-selected won't appear in Selected events.
+- Same in the case of selected events, if it got deselected, it wont appear in selected events.
+- User is allowed to deselect all the selected events.
+- This application is designed with a focus on accessibility, ensuring it meets the needs of all users regardless of their abilities.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Important Commands:
 
-### `npm run eject`
+`npm start`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Runs the JSON server (json-server) and starts the React development server concurrently.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`npm run build`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Builds the app for production to the build folder.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+`npm test`
 
-## Learn More
+- Launches the test runner in interactive watch mode, with coverage reporting.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`npm run eject`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Note: This is a one-way operation. Once you eject, you can't go back!
+
+- Ejects the project from react-scripts, allowing customization of build configurations and dependencies.
